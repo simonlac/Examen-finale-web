@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site de recette</title>
+  <!--This is a comment. Comments are not displayed in the browser-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="ajouter.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+<!--Ce form va servir pour ajouter une recette à la liste de recette Json-->
+<!--tout les inputs sauf les instructions on un custom validity qui explique quel est le problème et comment le régler-->
+<div class="container col-lg-6">
+  <h1>Ajouter une recette</h1>
+  <form id="ajouter-form">
+    <div class="form-group">
+      <!--Pour le nom de la recette il et obligatoire et tu peux entrer entre 1 et 100 charactère pour le nom -->
+      <label for="nom">Nom de la recette *</label>
+      <input type="text" class="form-control" id="nom" required placeholder="Entrer le nom de votre recette" pattern="[^]{1,100}" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à 100 de n importe quel charactère et le nom de la recette est obligatoire')">
+    </div>
+    <div class="form-group">
+      <p>Ingrédients</p>
+      <label for="ingrédient-1">*</label>
+      <!--Pour l'ingrédient 1 et sa quantité je l'ai mis required pour les deux et un minimum de 1 pour la quantité-->
+      <input type="text" id="ingrédient-1" name="ingrédient-1" placeholder="Ingrédient 1" required pattern="[^]{1,100}" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à 100 de n importe quel charactère et il doit avoir au moin deux ingrédients')">
+      <!--Pour la quantité 1 il a un pattern de 1 à 3 chiffre pour un maximum de 999 et tu peux mettre n'importe quoi après pour unité de mesure-->
+      <label for="quantite-1">*</label>
+      <input type="text" id="quantite-1" name="quantite-1" placeholder="Quantité 1" required pattern="[0-9]{1,3}+[^]" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à trois chiffre et n importe quel charactère après et il doit y avoir au moin deux ingrédient')">
+      <br>
+      <label for="ingrédient-2">*</label>
+      <!--Pour l'ingrédient 2 et sa quantité c'est pareille à la première je l'ai mis required pour les deux et un minimum de 1 pour la quantité-->
+      <input type="text" id="ingrédient-2" name="ingrédient-2" placeholder="Ingrédient 2" required pattern="[^]{1,100}" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à 100 de n importe quel charactère et il doit avoir au moin deux ingrédients')">
+      <!--Pour la quantité 1 il a un pattern de 1 à 3 chiffre pour un maximum de 999 et tu peux mettre n'importe quoi après pour unité de mesure-->
+      <label for="quantite-2">*</label>
+      <input type="text" id="quantite-2" name="quantite-2" placeholder="Quantité 2" required pattern="[0-9]{1,3}+[^]" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à trois chiffre et n importe quel charactère après et il doit y avoir au moin deux ingrédient')">
+      <br>
+      <label for="ingrédient-3"></label>
+      <!--Pour l'ingrédient 3 et sa quantité ils ne sont pas obligatoire et nécéssaire alors il n'y a pas de validation mais le pattern reste pareille si il y a de l'information de mis-->
+      <input type="text" id="ingrédient-3" name="ingrédient-3" placeholder="Ingrédient 3" pattern="[^]{1,100}" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à 100 de n importe quel charactère')">
+      <!--Pour la quantité 1 il a un pattern de 1 à 3 chiffre pour un maximum de 999 et tu peux mettre n'importe quoi après pour unité de mesure-->
+      <label for="quantite-3"></label>
+      <input type="text" id="quantite-3" name="quantite-3" placeholder="Quantité 3" pattern="[0-9]{1,3}+[^]" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à trois chiffre et n importe quel charactère après')">
+      <br>
+      <!--Pour l'ingrédient 4 et sa quantité ils ne sont pas obligatoire et nécéssaire alors il n'y a pas de validation mais le pattern reste pareille si il y a de l'information de mis-->
+      <label for="ingrédient-4"></label>
+      <input type="text" id="ingrédient-4" name="ingrédient-4" placeholder="Ingrédient 4" pattern="[^]{1,100}" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à 100 de n importe quel charactère')">
+      <!--Pour la quantité 1 il a un pattern de 1 à 3 chiffre pour un maximum de 999 et tu peux mettre n'importe quoi après pour unité de mesure-->
+      <label for="quantite-4"></label>
+      <input type="text" id="quantite-4" name="quantite-4" placeholder="Quantité 4" pattern="[0-9]{1,3}+[^]" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à trois chiffre et n importe quel charactère après')">
+      <br>
+      <!--Pour l'ingrédient 5 et sa quantité ils ne sont pas obligatoire et nécéssaire alors il n'y a pas de validation mais le pattern reste pareille si il y a de l'information de mis -->
+      <label for="ingrédient-5"></label>
+      <input type="text" id="ingrédient-5" name="ingrédient-5" placeholder="Ingrédient 5" pattern="[^]{1,100}" oninvalid="this.setCustomValidity('Tu peux entrée de 1 à 100 de n importe quel charactère')">
+      <!--Pour la quantité j'ai seulement gardé qu'il est positif  de un a 3 chiffre et tu peux ajouter un unité de mesure après si l'utilisateur choisi d'entrer l'information-->
+      <label for="quantite-5"></label>
+      <input type="text" id="quantite-5" name="quantite-5" placeholder="Quantité 5" pattern="[0-9]{1,3}+[^] " oninvalid="this.setCustomValidity('Tu peux entrée de 1 à trois chiffre et n importe quel charactère après')">
+    </div>
+    <div class="form-group">
+      <!--instruction qui est un textarea qui est required-->
+      <label for="instruction">Instructions *</label>
+      <textarea class="form-control" id="instruction" rows="3" required ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter la recette</button>
+  </form>
+  <h2>Recette</h2>
+  <!--Ici est la place ou que les recettes sont possitionner-->
+  <div class="container col-lg-6" id="objets-container"></div>
+</div>
+</body>
+</html>
